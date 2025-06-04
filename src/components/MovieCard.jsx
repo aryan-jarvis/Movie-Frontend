@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 export default function MovieCard() {
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card sx={{ maxWidth: 250 }} style={{ borderRadius: "0.5rem" }}>
       {/* <Card> */}
       <CardMedia
         component="img"

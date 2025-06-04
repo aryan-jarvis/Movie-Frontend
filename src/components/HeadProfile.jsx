@@ -1,3 +1,5 @@
+import SearchBar from "./SearchBar";
+
 export default function HeadProfile() {
   return (
     <div
@@ -8,12 +10,18 @@ export default function HeadProfile() {
         justifyContent: "space-between",
       }}
     >
-      <div className="Left-Profile-Section">
+      <div
+        className="Left-Profile-Section"
+        style={{ display: "flex", gap: "3rem" }}
+      >
         <img
           className="logo"
           src="../src/assets/images/logo.png"
           alt="Company Logo"
         />
+        <div>
+          <SearchBar />
+        </div>
       </div>
 
       <div

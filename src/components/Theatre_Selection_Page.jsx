@@ -7,6 +7,7 @@ export default function Theatre_Selection_Page() {
   return (
     <div style={{ padding: "1.5rem" }}>
       <HeadProfile />
+      <br />
       <p>Home / Movie / Show Time</p>
       <AzaadDates />
       <SelectShow />
