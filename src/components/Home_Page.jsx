@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import HeadProfile from "./HeadProfile";
 import MovieCollection from "./MovieCollection";
 import SalaarSlider from "./SalaarSlider";
+import React from "react";
 
 export default function Home_Page() {
   return (

@@ -19,11 +19,11 @@ export default function HeadProfile() {
           src="../src/assets/images/logo.png"
           alt="Company Logo"
         />
-        <div>
+        {/* <div>
           <SearchBar />
-        </div>
+        </div> */}
       </div>
-
+      <SearchBar />
       <div
         className="Right-Profile-Section"
         style={{ display: "flex", gap: "1rem" }}

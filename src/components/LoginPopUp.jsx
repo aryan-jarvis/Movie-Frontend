@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "react-router-dom";
 
 export default function LoginPopUp() {
   const [isSignup, setIsSignup] = useState(false);
@@ -60,6 +61,16 @@ export default function LoginPopUp() {
       marginBottom: "1rem",
       cursor: "pointer",
     },
+    emailButton: {
+      // backgroundColor: "#db4437",
+      color: "black",
+      border: "none",
+      padding: "10px",
+      width: "100%",
+      fontSize: "1rem",
+      marginBottom: "1rem",
+      cursor: "pointer",
+    },
     toggleText: {
       color: "#007bff",
       cursor: "pointer",
@@ -75,9 +86,12 @@ export default function LoginPopUp() {
       <button onClick={handleGoogleLogin} style={styles.googleButton}>
         Continue with Google
       </button>
+      <button onClick={handleGoogleLogin} style={styles.emailButton}>
+        Continue with Email
+      </button>
 
       <form onSubmit={handleSubmit}>
-        <input
+        {/* <input
           type="email"
           placeholder="Email address"
           value={email}
@@ -93,20 +107,32 @@ export default function LoginPopUp() {
           onChange={(e) => setPhone(e.target.value)}
           style={styles.input}
           required
-        />
+        /> */}
 
-        <input
+        {/* <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           style={styles.input}
           required
-        />
+        /> */}
 
-        <button type="submit" style={styles.button}>
+        {/* <button type="submit" style={styles.button}>
           {isSignup ? "Sign Up" : "Login"}
-        </button>
+        </button> */}
+
+        <h3>OR</h3>
+        <form>
+          <input
+            type="tel"
+            placeholder="Enter your phone number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            style={styles.input}
+            required
+          />
+        </form>
       </form>
 
       <p onClick={() => setIsSignup(!isSignup)} style={styles.toggleText}>

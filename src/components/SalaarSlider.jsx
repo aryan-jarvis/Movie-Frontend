@@ -1,5 +1,6 @@
 import { responsiveFontSizes } from "@mui/material";
 import React from "react";
+import "../App.css";
 
 const containerStyle = {
   position: "relative",
@@ -80,6 +81,9 @@ export default function SalaarSlider() {
         style={{ width: "100%" }}
       />
       <div style={textStyle}>
+        <div className="search-bar-main-container">
+          <input type="search" id="site-search" name="q" />
+        </div>
         <h1 style={{ fontSize: "5rem" }}>Redefined Movie Experience !</h1>
         <h2 style={{ fontSize: "2rem" }}>At PVR Superplex Mall of India</h2>
       </div>
