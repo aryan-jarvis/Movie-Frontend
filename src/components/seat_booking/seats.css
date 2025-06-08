@@ -1,0 +1,32 @@
+.grid {
+  background-color: #f9f9f9;
+  margin: 1rem auto;
+  border-collapse: separate;
+  border-spacing: 1.5rem;
+}
+
+.grid td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.available {
+  background-color: #ffffff;
+  border: 1px solid #59b200;
+  color: #59b200;
+}
+
+.selected {
+  background-color: #59b200;
+  color: #ffffff;
+}
+
+.reserved {
+  background-color: #d6d6d6;
+  border: 1px solid #d6d6d6;
+  color: white;
+  cursor: not-allowed;
+}
