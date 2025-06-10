@@ -1,4 +1,4 @@
-import SearchBar from "./SearchBar";
+import SearchDropDown from "./SearchDropDown";
 
 export default function HeadProfile() {
   return (
@@ -14,21 +14,22 @@ export default function HeadProfile() {
         className="Left-Profile-Section"
         style={{ display: "flex", gap: "3rem" }}
       >
-        <img
-          className="logo"
-          src="../src/assets/images/logo.png"
-          alt="Company Logo"
-        />
-        {/* <div>
-          <SearchBar />
-        </div> */}
+        <a href="http://localhost:5173/">
+          <img
+            className="logo"
+            src="../src/assets/images/logo.png"
+            alt="Company Logo"
+          />
+        </a>
       </div>
-      <SearchBar />
       <div
         className="Right-Profile-Section"
         style={{ display: "flex", gap: "1rem" }}
       >
-        <p>New Delhi</p>
+        <div>
+          <SearchDropDown />
+        </div>
+        {/* <p>New Delhi</p> */}
         <img
           className="logo"
           src="../src/assets/images/user_logo.png"

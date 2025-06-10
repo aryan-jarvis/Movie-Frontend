@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 
-function ReviewForm({ onSubmit }) {
-  const [author, setAuthor] = useState("");
+function ReviewForm({ onSubmit, onClose }) {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ author, comment, rating });
-    setAuthor("");
+    onSubmit({ comment, rating });
     setComment("");
     setRating(0);
   };
 
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
-      <input
-        type="text"
-        placeholder="Your Name"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-        style={styles.input}
-        required
-      />
+      <button onClick={onClose} type="button" style={closeButtonStyle}>
+        &times;
+      </button>
+      <div style={styles.ratingContainer}>
+        <Rating onClick={setRating} ratingValue={rating} />
+      </div>
       <textarea
         placeholder="Write your review..."
         value={comment}
@@ -31,10 +27,6 @@ function ReviewForm({ onSubmit }) {
         style={styles.textarea}
         required
       />
-      <div style={styles.ratingContainer}>
-        <span style={{ marginRight: 10 }}>Your Rating:</span>
-        <Rating onClick={setRating} ratingValue={rating} />
-      </div>
       <button type="submit" style={styles.button}>
         Submit Review
       </button>
@@ -45,7 +37,6 @@ function ReviewForm({ onSubmit }) {
 function ReviewItem({ review }) {
   return (
     <div style={styles.reviewItem}>
-      <h3 style={styles.reviewAuthor}>{review.author}</h3>
       <Rating ratingValue={review.rating} readonly={true} />
       <p style={styles.reviewComment}>{review.comment}</p>
     </div>
@@ -54,66 +45,66 @@ function ReviewItem({ review }) {
 
 function PostRating() {
   const [reviews, setReviews] = useState([]);
-  //   const [averageRating, setAverageRating] = useState(0);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleReviewSubmit = (newReview) => {
-    const updatedReviews = [...reviews, newReview];
-    setReviews(updatedReviews);
-    // updateAverageRating(updatedReviews);
+    setReviews([...reviews, newReview]);
+    setIsOpen(false); // Optionally close on submit
   };
 
-  //   const updateAverageRating = (updatedReviews) => {
-  //     if (updatedReviews.length === 0) {
-  //       setAverageRating(0);
-  //       return;
-  //     }
-  //     const totalRating = updatedReviews.reduce(
-  //       (sum, review) => sum + review.rating,
-  //       0
-  //     );
-  //     setAverageRating(totalRating / updatedReviews.length);
-  //   };
-
   return (
-    <div style={styles.container}>
-      <h2>Ratings and Reviews</h2>
-      {/* <p style={styles.averageRating}>
-        Average Rating: <Rating ratingValue={averageRating} readonly={true} />
-        <span style={{ marginLeft: 8, fontWeight: "bold" }}>
-          {averageRating.toFixed(1)} / 100
-        </span>
-      </p> */}
-      <ReviewForm onSubmit={handleReviewSubmit} />
-      <div style={styles.reviewsList}>
+    <>
+      {isOpen && (
+        <div style={styles.container}>
+          <h2>Ratings and Reviews</h2>
+          <ReviewForm
+            onSubmit={handleReviewSubmit}
+            onClose={() => setIsOpen(false)}
+          />
+        </div>
+      )}
+      {/* <div style={styles.reviewsList}>
         {reviews.map((review, index) => (
           <ReviewItem key={index} review={review} />
         ))}
-      </div>
-    </div>
+      </div> */}
+    </>
   );
 }
 
+const closeButtonStyle = {
+  position: "absolute",
+  top: "10px",
+  right: "15px",
+  background: "transparent",
+  border: "none",
+  fontSize: "24px",
+  cursor: "pointer",
+  color: "#333",
+};
+
 const styles = {
   container: {
-    maxWidth: 600,
+    position: "fixed",
+    top: "12rem",
+    left: "40rem",
+    width: "30rem",
+    height: "23rem",
     margin: "20px auto",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     padding: 20,
     border: "1px solid #ddd",
-    borderRadius: 8,
+    borderRadius: "1.5rem",
     backgroundColor: "#fafafa",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 10,
+    boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
   },
   form: {
+    position: "relative",
     display: "flex",
     flexDirection: "column",
     marginBottom: 30,
-  },
-  input: {
-    padding: 10,
-    marginBottom: 15,
-    fontSize: 16,
-    borderRadius: 4,
-    border: "1px solid #ccc",
   },
   textarea: {
     padding: 10,
@@ -131,11 +122,11 @@ const styles = {
   },
   button: {
     padding: "10px 20px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#ff5295",
     color: "white",
     fontSize: 16,
     border: "none",
-    borderRadius: 4,
+    borderRadius: "0.35rem",
     cursor: "pointer",
     alignSelf: "flex-start",
   },
@@ -143,27 +134,16 @@ const styles = {
     padding: 15,
     marginBottom: 15,
     border: "1px solid #ddd",
-    borderRadius: 6,
     backgroundColor: "white",
-  },
-  reviewAuthor: {
-    margin: "0 0 8px 0",
-    fontSize: 18,
-    color: "#333",
   },
   reviewComment: {
     marginTop: 8,
     fontSize: 16,
     color: "#555",
   },
-  averageRating: {
-    display: "flex",
-    alignItems: "center",
-    fontSize: 18,
-    marginBottom: 20,
-  },
   reviewsList: {
     marginTop: 10,
+    padding: "1rem 2rem",
   },
 };
 

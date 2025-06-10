@@ -32,16 +32,42 @@ export default function SelectShow() {
         </div>
       </div>
       <div className="Booking Buttons" style={{ padding: "1rem" }}>
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>&nbsp;&nbsp;
-        <button style={buttonStyle}>2:40 PM</button>
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5173/seatselect">
+          <button style={buttonStyle}>2:40 PM</button>
+        </a>
+        &nbsp;&nbsp;
       </div>
     </div>
   );

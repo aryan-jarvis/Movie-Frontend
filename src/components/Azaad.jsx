@@ -17,15 +17,27 @@ export default function Azaad() {
             animal becomes a journey of courage, awakening him to his own power
             amidst the country's fight for freedom.
           </p>
-          <button
-            style={{
-              backgroundColor: "#FF5295",
-              color: "white",
-              border: "#FF5295",
-            }}
-          >
-            Book Now
-          </button>
+          <a href="http://localhost:5173/theatre">
+            <button
+              style={{
+                // backgroundColor: "#FF5295",
+                // color: "white",
+                // border: "#FF5295",
+                margin: "5px",
+                width: "12rem",
+                height: "3rem",
+                padding: "10px 20px",
+                fontSize: "1.3rem",
+                cursor: "pointer",
+                backgroundColor: "#FF5295",
+                color: "white",
+                border: "none",
+                borderRadius: "4px",
+              }}
+            >
+              Book Now
+            </button>
+          </a>
         </div>
       </div>
     </>

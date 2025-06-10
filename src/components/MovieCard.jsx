@@ -24,9 +24,17 @@ export default function MovieCard() {
         <Typography>4.5 ★★★★☆</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" style={{ backgroundColor: "red", color: "white" }}>
-          Book Now
-        </Button>
+        <a href="http://localhost:5173/description">
+          <Button
+            size="small"
+            style={{
+              backgroundColor: "red",
+              color: "white",
+            }}
+          >
+            Book Now
+          </Button>
+        </a>
       </CardActions>
     </Card>
   );

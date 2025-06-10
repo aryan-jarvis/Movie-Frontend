@@ -1,145 +1,118 @@
-import React, { useState } from "react";
-import { Form } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
+const API = "http://localhost:8080";
 
 export default function LoginPopUp() {
-  const [isSignup, setIsSignup] = useState(false);
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+  // const [profile, setProfile] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
 
-  const handleGoogleLogin = () => {
-    alert("Google login not implemented.");
+  const handleRegister = async () => {
+    const res = await axios.post(`${API}/register`, { username, password });
+    setToken(res.data.token);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(
-      `${
-        isSignup ? "Signing up" : "Logging in"
-      } with:\nEmail: ${email}\nPhone: ${phone}`
-    );
+  const handleLogin = async () => {
+    const res = await axios.post(`${API}/login`, { username, password });
+    setToken(res.data.token);
   };
 
-  // Inline styles
-  const styles = {
-    container: {
-      maxWidth: "400px",
-      margin: "5rem auto",
-      padding: "2rem",
-      border: "1px solid #ddd",
-      borderRadius: "8px",
-      textAlign: "center",
-      fontFamily: "Arial, sans-serif",
-    },
-    heading: {
-      marginBottom: "1rem",
-    },
-    input: {
-      display: "block",
-      width: "100%",
-      padding: "10px",
-      margin: "0.5rem 0",
-      fontSize: "1rem",
-    },
-    button: {
-      width: "100%",
-      padding: "10px",
-      marginTop: "1rem",
-      backgroundColor: "#007bff",
-      color: "white",
-      border: "none",
-      fontSize: "1rem",
-      cursor: "pointer",
-    },
-    googleButton: {
-      backgroundColor: "#db4437",
-      color: "white",
-      border: "none",
-      padding: "10px",
-      width: "100%",
-      fontSize: "1rem",
-      marginBottom: "1rem",
-      cursor: "pointer",
-    },
-    emailButton: {
-      // backgroundColor: "#db4437",
-      color: "black",
-      border: "none",
-      padding: "10px",
-      width: "100%",
-      fontSize: "1rem",
-      marginBottom: "1rem",
-      cursor: "pointer",
-    },
-    toggleText: {
-      color: "#007bff",
-      cursor: "pointer",
-      marginTop: "1rem",
-      textDecoration: "underline",
-    },
+  // const fetchProfile = async () => {
+  //   const res = await axios.get(`${API}/api/profile`, {
+  //     headers: { Authorization: token },
+  //   });
+  //   setProfile(res.data.user);
+  // };
+
+  const overlayStyle = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 9, // behind the popup
   };
+
+  const containerStyle = {
+    position: "fixed",
+    top: "9rem",
+    left: "calc(50% - 20rem)",
+    width: "40rem",
+    height: "40rem",
+    backgroundColor: "#fffffa",
+    borderRadius: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 10,
+    boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+  };
+
+  const closeButtonStyle = {
+    position: "absolute",
+    top: "10px",
+    right: "15px",
+    background: "transparent",
+    border: "none",
+    fontSize: "24px",
+    cursor: "pointer",
+    color: "#333",
+  };
+
+  const inputStyle = {
+    margin: "10px",
+    padding: "10px",
+    fontSize: "16px",
+    width: "200px",
+  };
+
+  const buttonStyle = {
+    margin: "5px",
+    padding: "10px 20px",
+    fontSize: "16px",
+    cursor: "pointer",
+    backgroundColor: "#FF5295",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+  };
+
+  if (!isOpen) return null;
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>{isSignup ? "Sign Up" : "Login"}</h2>
-
-      <button onClick={handleGoogleLogin} style={styles.googleButton}>
-        Continue with Google
-      </button>
-      <button onClick={handleGoogleLogin} style={styles.emailButton}>
-        Continue with Email
-      </button>
-
-      <form onSubmit={handleSubmit}>
-        {/* <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={styles.input}
-          required
-        />
-
+    <>
+      <div style={overlayStyle} />
+      <div style={containerStyle}>
+        <button onClick={() => setIsOpen(false)} style={closeButtonStyle}>
+          &times;
+        </button>
+        <h1>Welcome 👋</h1>
         <input
-          type="tel"
-          placeholder="Phone number"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          style={styles.input}
-          required
-        /> */}
-
-        {/* <input
+          placeholder="email"
+          type="email"
+          onChange={(e) => setUsername(e.target.value)}
+          style={inputStyle}
+        />
+        <input
+          placeholder="password"
           type="password"
-          placeholder="Password"
-          value={password}
           onChange={(e) => setPassword(e.target.value)}
-          style={styles.input}
-          required
-        /> */}
-
-        {/* <button type="submit" style={styles.button}>
-          {isSignup ? "Sign Up" : "Login"}
-        </button> */}
-
-        <h3>OR</h3>
-        <form>
-          <input
-            type="tel"
-            placeholder="Enter your phone number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            style={styles.input}
-            required
-          />
-        </form>
-      </form>
-
-      <p onClick={() => setIsSignup(!isSignup)} style={styles.toggleText}>
-        {isSignup
-          ? "Already have an account? Login"
-          : "Don't have an account? Sign up"}
-      </p>
-    </div>
+          style={inputStyle}
+        />
+        <div style={{ display: "flex" }}>
+          <button onClick={handleRegister} style={buttonStyle}>
+            Register
+          </button>
+          <button onClick={handleLogin} style={buttonStyle}>
+            Login
+          </button>
+        </div>
+      </div>
+    </>
   );
 }

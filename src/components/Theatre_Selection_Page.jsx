@@ -8,7 +8,23 @@ export default function Theatre_Selection_Page() {
     <div style={{ padding: "1.5rem" }}>
       <HeadProfile />
       <br />
-      <p>Home / Movie / Show Time</p>
+      <div style={{ display: "flex" }}>
+        <a
+          href="http://localhost:5173/"
+          style={{ color: "black", textDecoration: "none" }}
+        >
+          <p>Home</p>
+        </a>
+        &nbsp;
+        <a
+          href="http://localhost:5173/description"
+          style={{ color: "black", textDecoration: "none" }}
+        >
+          <p>/ Movie</p>
+        </a>
+        &nbsp;
+        <p>/ Show Time</p>
+      </div>
       <AzaadDates />
       <SelectShow />
       <SelectShow />
