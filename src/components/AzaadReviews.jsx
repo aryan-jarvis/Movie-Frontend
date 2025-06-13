@@ -11,9 +11,6 @@ export default function AzaadReviews() {
         <div>
           <button
             style={{
-              // backgroundColor: "#FF5295",
-              // color: "white",
-              // border: "#FF5295",
               padding: "10px 20px",
               backgroundColor: "#ff5295",
               color: "white",
@@ -21,14 +18,79 @@ export default function AzaadReviews() {
               border: "none",
               borderRadius: "0.35rem",
               cursor: "pointer",
-              // alignSelf: "flex-start",
             }}
           >
             Rate Now
           </button>
         </div>
       </div>
-      <div className="reviews collection"></div>
+      <div className="reviews collection" style={{ display: "flex" }}>
+        <div
+          style={{
+            width: "15rem",
+            padding: "3rem",
+          }}
+        >
+          <div style={{ display: "flex", gap: "2rem" }}>
+            <h3>Anand Kumar</h3>
+            <p>2 days ago</p>
+          </div>
+          <hr />
+          <div>Great Movie, absoultely loved it.</div>
+        </div>
+        <div
+          style={{
+            width: "15rem",
+            padding: "3rem",
+          }}
+        >
+          <div style={{ display: "flex", gap: "2rem" }}>
+            <h3>Anand Kumar</h3>
+            <p>2 days ago</p>
+          </div>
+          <hr />
+          <div>Great Movie, absoultely loved it.</div>
+        </div>
+        <div
+          style={{
+            width: "15rem",
+            padding: "3rem",
+          }}
+        >
+          <div style={{ display: "flex", gap: "2rem" }}>
+            <h3>Anand Kumar</h3>
+            <p>2 days ago</p>
+          </div>
+          <hr />
+          <div>Great Movie, absoultely loved it.</div>
+        </div>
+        <div
+          style={{
+            width: "15rem",
+            padding: "3rem",
+          }}
+        >
+          <div style={{ display: "flex", gap: "2rem" }}>
+            <h3>Anand Kumar</h3>
+            <p>2 days ago</p>
+          </div>
+          <hr />
+          <div>Great Movie, absoultely loved it.</div>
+        </div>
+        <div
+          style={{
+            width: "15rem",
+            padding: "3rem",
+          }}
+        >
+          <div style={{ display: "flex", gap: "2rem" }}>
+            <h3>Anand Kumar</h3>
+            <p>2 days ago</p>
+          </div>
+          <hr />
+          <div>Great Movie, absoultely loved it.</div>
+        </div>
+      </div>
     </div>
   );
 }

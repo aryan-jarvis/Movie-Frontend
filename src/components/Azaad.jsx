@@ -20,9 +20,6 @@ export default function Azaad() {
           <a href="http://localhost:5173/theatre">
             <button
               style={{
-                // backgroundColor: "#FF5295",
-                // color: "white",
-                // border: "#FF5295",
                 margin: "5px",
                 width: "12rem",
                 height: "3rem",

@@ -9,11 +9,9 @@ import Typography from "@mui/material/Typography";
 export default function MovieCard() {
   return (
     <Card sx={{ maxWidth: 250 }} style={{ borderRadius: "0.5rem" }}>
-      {/* <Card> */}
       <CardMedia
         component="img"
         alt="green iguana"
-        // height="140"
         image="../src/assets/images/movie_img.png"
       />
       <CardContent>

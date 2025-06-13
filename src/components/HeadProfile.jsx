@@ -29,7 +29,6 @@ export default function HeadProfile() {
         <div>
           <SearchDropDown />
         </div>
-        {/* <p>New Delhi</p> */}
         <img
           className="logo"
           src="../src/assets/images/user_logo.png"

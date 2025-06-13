@@ -23,12 +23,27 @@ export default function Payment_Summary_Page() {
         </div>
         <h2>Payment Summary</h2>
         <div className="amount-summary">
-          <p>Order amount</p>
-          <p>Booking charge</p>
-          <p>CGST</p>
-          <p>SGST</p>
+          <div style={{ display: "flex" }}>
+            <p>Order amount</p>
+            <p>Rs.300</p>
+          </div>
+          <div style={{ display: "flex" }}>
+            <p>Booking charge</p>
+            <p>Rs.50</p>
+          </div>
+          <div style={{ display: "flex" }}>
+            <p>CGST</p>
+            <p>Rs.5</p>
+          </div>
+          <div style={{ display: "flex" }}>
+            <p>SGST</p>
+            <p>Rs.5</p>
+          </div>
           <hr />
-          <h4>Total Amount</h4>
+          <div style={{ display: "flex" }}>
+            <p>Total Amount</p>
+            <p>Rs.360</p>
+          </div>
         </div>
         <h2>Your details</h2>
         <div className="details">

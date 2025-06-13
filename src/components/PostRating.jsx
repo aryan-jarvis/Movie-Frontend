@@ -49,7 +49,7 @@ function PostRating() {
 
   const handleReviewSubmit = (newReview) => {
     setReviews([...reviews, newReview]);
-    setIsOpen(false); // Optionally close on submit
+    setIsOpen(false);
   };
 
   return (

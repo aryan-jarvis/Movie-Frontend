@@ -6,7 +6,6 @@ export default function ShowBooking_Page() {
   return (
     <div style={{ padding: "1.5rem" }}>
       <HeadProfile />
-      {/* <p>Home / Movie / Show Time / Show Booking</p> */}
       <div style={{ display: "flex" }}>
         <a
           href="http://localhost:5173/"
